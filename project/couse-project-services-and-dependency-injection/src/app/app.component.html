@@ -1,0 +1,11 @@
+<app-header (selectedTab)="onSelectedFeature($event)"></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Angular 8 tutorials.....</h2>
+      <app-recipes *ngIf="selectedFeature === 'recipes'"></app-recipes>
+      <app-shopping-list *ngIf="selectedFeature === 'shopping-list'"></app-shopping-list>
+    </div>
+  </div>
+</div>
+

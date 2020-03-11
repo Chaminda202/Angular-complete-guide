@@ -1,0 +1,13 @@
+.container {
+  margin-top: 10px;
+}
+
+.odd {
+  color: red;
+}
+
+.even {
+  color: blue;
+  background: cadetblue;
+  margin: 10px 30px;
+}

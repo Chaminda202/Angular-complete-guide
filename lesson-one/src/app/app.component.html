@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Username </label>
+      <input type="text" class="form-control"
+            [(ngModel)]="username"
+            (input)="insertUserName($event)"/>
+
+      <p>Username is {{ username }}</p>
+      <!-- <button class="btn btn-primary"
+              [disabled]="username === ''"
+              (click)="resetUsername()">Reset</button> -->
+      <button class="btn btn-primary"
+              [disabled]="username === ''"
+              (click)="username = ''">Reset</button>
+      <!-- <button class="btn btn-primary"
+              [disabled]="isDisabled"
+              (click)="resetUsername()">Reset</button> -->
+      <br/>
+      <br/>
+         <!--
+        <button
+          class="btn btn-primary"
+          (click)=" onDisplayLog()">Disply Details</button>
+
+       <div>
+          <p *ngIf="showContent">Secret Password = tuna</p>
+          <div
+            *ngFor="let item of log"
+            [ngStyle]="{'backgroundColor': item >=5 ? 'blue' : 'transparent'}"
+            [ngClass]="{'white-color': item >=5}"
+            >{{item}}</div>
+        </div> -->
+
+        <button
+          class="btn btn-primary"
+          (click)=" onDisplayLogTimeStamp()">Disply Details</button>
+        <div>
+          <p *ngIf="showContent">Secret Password = tuna</p>
+          <div
+            *ngFor="let item of log; let itemCount = index"
+            [ngStyle]="{'backgroundColor': itemCount + 1 >=5 ? 'blue' : 'transparent'}"
+            [ngClass]="{'white-color': itemCount + 1 >=5}"
+            >{{item}}</div>
+        </div>
+      </div>
+  </div>
+</div>
+
+

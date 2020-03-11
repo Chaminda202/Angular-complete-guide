@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary"
+        (click)="onlyOdd =! onlyOdd">Only Show Odd Numbers</button>
+      <br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li class="list-group-item"
+          [ngStyle]="{'background': item % 2 !== 0 ? 'yellow': 'white'}"
+            [ngClass]="{'odd': onlyOdd}"
+            *ngFor="let item of oddNumbers">{{item}}
+          </li>
+        </div>
+
+        <!-- <div *ngIf="!onlyOdd">
+          <li class="list-group-item"
+            [ngClass]="{'even': !onlyOdd}"
+            *ngFor="let item of evenNumbers">{{item}}
+          </li>
+        </div>
+
+        <ng-template [ngIf]="!onlyOdd">
+          <div>
+            <li class="list-group-item"
+              [ngClass]="{'even': !onlyOdd}"
+              *ngFor="let item of evenNumbers">{{item}}
+            </li>
+          </div>
+        </ng-template>
+      -->
+        <div *appUnless="onlyOdd">
+          <li class="list-group-item"
+            [ngClass]="{'even': !onlyOdd}"
+            *ngFor="let item of evenNumbers">{{item}}
+          </li>
+        </div>
+      </ul>
+      <p appBasicDirective>Basic custom directive example</p>
+      <p appBetterHighlight [defaultColor]="'green'" [highlightColor]="'red'">Better custom directive example</p>
+
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Print value is 5</p>
+        <p *ngSwitchCase="10">Print value is 10</p>
+        <p *ngSwitchCase="100">Print value is 100</p>
+        <p *ngSwitchDefault>Print default value</p>
+      </div>
+    </div>
+  </div>
+</div>

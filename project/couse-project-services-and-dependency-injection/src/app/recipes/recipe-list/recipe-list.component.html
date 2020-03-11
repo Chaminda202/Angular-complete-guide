@@ -1,0 +1,8 @@
+<div class="row">
+  <button class="btn btn-success">Add Recipe</button>
+</div>
+<hr>
+<app-recipe-item
+  *ngFor="let item of recipeList"
+  [item]="item">
+</app-recipe-item>

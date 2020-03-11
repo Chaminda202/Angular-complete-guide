@@ -1,0 +1,52 @@
+<div class="container">
+  <!-- <app-cockpit
+    (onServerAdded)="onServerAdd($event)"
+    (onBlueprintAdded)="onBlueprintAdd($event)"></app-cockpit> -->
+    <app-cockpit
+      (addedEnteredDetails)="onAddList($event)"></app-cockpit>
+  <hr>
+  <!-- <div class="row">
+    <div class="col-xs-12">
+      <app-server-element
+        *ngFor="let element of serverElements"
+        [item]="element">
+      </app-server-element>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element
+        *ngFor="let element of serverElements"
+        [item]="element">
+        <div class="panel-heading">{{element.name}}</div>
+        <div class="panel-body">
+          <p>
+            <strong *ngIf="element.type === 'server'; else other" style="color: red;">{{element.content}}</strong>
+          </p>
+          <ng-template #other>
+            <p>
+              <em>{{element.content}}</em>
+            </p>
+          </ng-template>
+        </div>
+      </app-server-element>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+       <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+       <app-even *ngFor="let item of evenNumbers" [num]="item"></app-even>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-odd *ngFor="let item of oddNumbers" [num]="item"></app-odd>
+    </div>
+  </div>
+</div>
