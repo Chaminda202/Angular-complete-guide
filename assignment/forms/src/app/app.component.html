@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="projectDetails" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Project Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="name">
+            <span *ngIf="!name.valid && name.touched">
+              <span *ngIf="name.errors.required">
+                Value is required
+              </span>
+              <span *ngIf="name.errors.isInvalidName">
+                Please enter valid project name
+              </span>
+            </span>
+        </div>
+        <div class="form-group">
+          <label for="mail">Mail</label>
+          <input
+            type="text"
+            id="mail"
+            class="form-control"
+            formControlName="mail">
+          <span *ngIf="!mail.valid && mail.touched">
+            <span *ngIf="mail.errors.required">
+              Value is reqired
+            </span>
+            <span *ngIf="mail.errors.email">
+              Please enter valid email address
+            </span>
+            <!-- <span *ngIf="mail.errors.isForbiddenEmail">
+              Please enter allowed email address
+            </span> -->
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="status">Project Status</label>
+          <!-- <select
+            id="status"
+            class="form-control"
+            formControlName="status">
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select> -->
+          <select
+            id="status"
+            class="form-control"
+            formControlName="status">
+            <option
+              *ngFor="let status of projectStatus; let i = index"
+              [value]="status">{{ status }}</option>
+          </select>
+        </div>
+        <button class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
