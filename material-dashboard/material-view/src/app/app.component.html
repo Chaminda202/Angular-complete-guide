@@ -1,0 +1,18 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened>
+    <app-side-bar></app-side-bar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()" >
+        <i class="material-icons">menu</i>
+      </button>
+        <span class="example-fill-remaining-space"></span>
+        <span class="user-text">Welcome Guest</span>
+        <button mat-button>Log Out</button>
+    </mat-toolbar>
+    <div class="main-con">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

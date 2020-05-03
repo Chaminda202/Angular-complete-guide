@@ -1,0 +1,11 @@
+<app-header (toogleSideBarEmitter)="sideBarToogle($event)"></app-header>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-slider></app-slider>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+
